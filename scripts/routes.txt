@@ -1,0 +1,19 @@
+# Route inventory for the site being cloned — one path per line; # starts a comment.
+#
+# This is the authoritative page list: scripts/snapshot.sh, scripts/compare.sh and
+# src/app/sitemap.ts all read it. Taken from the target's own sitemap.xml, then
+# verified against the hrefs in the snapshots. See docs/routes.md.
+
+/
+/bio
+/novini
+/novini/blog-post-title-two-tcmjn-3d33l
+/novini/qqqqqq
+/home/skulptura
+/home/bijuta
+/home/plastika
+/home/kartini
+
+# Excluded, with reasons in docs/routes.md "Defects in the original":
+#   /home    serves the same page as /
+#   /bio-1   duplicate of /bio

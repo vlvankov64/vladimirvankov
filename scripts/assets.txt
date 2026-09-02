@@ -1,0 +1,103 @@
+# Media to download from the target, one absolute path or URL per line; # starts a comment.
+# Read by scripts/fetch-assets.sh, which mirrors each entry under public/.
+#
+# This target is a Squarespace site: every image is served from images.squarespace-cdn.com,
+# so these are absolute URLs rather than same-origin paths. Each is saved to
+# public/assets/<basename>; the ?format=2500w query selects the CDN's largest sensible
+# rendition and is stripped from the local filename.
+#
+# Derived from the snapshots with:
+#   grep -ohE 'data-src="(https://images\.squarespace-cdn\.com/[^"]+)"' reference/raw/*.html \
+#     | sed 's/data-src="//;s/"$//' | cut -d? -f1 | sort -u
+#
+# Then run ./scripts/fetch-assets.sh followed by ./bin/dev optimize.
+
+# Superseded — not downloaded. These four are the original's home-page category
+# cards, each with the discipline name burned into the JPEG in Bulgarian. The rebuild
+# renders that label as text over an untitled gallery photograph instead, so it can
+# exist in both languages. Uncomment to fetch them again. See docs/assets.md.
+# https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1726481388274-57XWI5IM7V950U3ZIJFE/1.jpg?format=2500w
+# https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1726481437715-6OIOL0JJDBCOK7F9RFBU/2.jpg?format=2500w
+# https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1726481401475-ETBJ6ZCVJZTUGFHRFGRB/3.jpg?format=2500w
+# https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1726481420844-680MJAEKZ0XUXTP0H27H/4.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1728896050786-ZXIA92U4NO5N2D6Z9KMQ/_DSF1901-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1729330212363-P6ISWGXUMOSLPBQUGMF6/_DSF1926-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/619741fd-4047-4f61-b191-4e2bd336f250/_DSF2063-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/550c5c9b-8653-481e-9c3c-7b442032d16f/_DSF2069-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/8a4b173a-1d00-44fd-8aa9-5e6f52eefb42/_DSF2071-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/9c15a9fb-a86d-4988-8c93-3c3ea8b0705a/_DSF2076-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/63e32ef4-bb91-4016-adc8-7fa1a7831fb5/_DSF2077-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/79f10083-e566-47ae-9071-838cf59c3675/_DSF2087-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/e74eaaf8-cfd9-47a0-8e41-8b288cbc58ab/_DSF2088-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/785140b8-58dc-4a1a-afe2-e9b010331f5f/_DSF2097-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/12f0e9da-bce3-4621-afe4-5cdfe71ee2c1/_DSF2098-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/61c1118d-ce6c-44c9-8434-d81a192d0a68/_DSF2103-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/7866802e-c60e-41c2-b98e-1202d8a1d4b0/_DSF2116-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/145d3f52-e435-4f21-9561-f15665b01437/_DSF2127-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/b3312590-488c-4bb9-8cba-1d39469f680f/_DSF2133-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1cd90981-1e94-40a9-a00a-bda653da064c/_DSF2146-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/f43b363f-9410-4605-8729-b28951bdd149/_DSF2150-Enhanced-NR.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/0bc15526-8da6-4f4d-8861-401522149ea9/_DSF6411.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/db57fcbc-e9e9-486a-96aa-9f11e4c2e874/_DSF6451-2.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/6a020570-cbbb-4e6f-a32c-7400b02b90ca/_DSF6484.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/beb8f2a5-17f3-4491-bf24-cda362a3e5bc/_DSF6488.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1eaa59d4-a7ba-429e-afd9-f4d1699d8f86/_DSF6490.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/d7d3d303-585c-4044-b064-72eae2f5b1c5/_DSF6493.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/7161d833-3d05-44eb-baf5-653d2cd3ccca/_DSF6500.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/53846384-fb92-4f96-bdbe-b5a97880a061/_DSF6504.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/45430c82-3f19-43e4-a2cc-0c32d4bb84b5/_DSF6505.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/142476ae-7db8-459a-84b5-9f50f717bda3/_DSF6508.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1745cfc7-fc29-4677-a838-d2e0cf607ca3/_DSF6513.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/68cc2466-af54-4705-879b-4df731b6923c/_DSF6520.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/c2e48713-c65f-4af6-865b-c73d29085017/_DSF6524.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/6d2a7239-4c09-46bf-b323-cd65ad5b2a0b/_DSF6533.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/469932e1-3c36-4380-afa9-571dba0f62f7/DSCF0929.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/351816e4-4221-44ad-98ce-656fe6bbd5c5/DSCF0932.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/a21aa2b3-1efb-4e8b-bdc4-661a792a422d/DSCF0933.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/e0d84c57-dcd5-47f9-967b-3f7c81db3634/DSCF0937.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/f9b00087-7171-4236-a344-92fff9a24c2f/DSCF0940.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/8abf9144-8484-4625-b979-6f75f324a37c/DSCF0945.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/e460e400-5c6b-4cfc-a9d7-0ea34dca3d95/DSCF0948.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/10e4f74b-53c9-4ea4-98c7-2ee08e9be431/DSCF0951.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/55519128-b1a9-468b-a57c-c5a653480a3e/DSCF0962.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/21aa9fd3-6241-4380-8c60-732d65064894/DSCF0966.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/87cb0105-bc9d-4726-8ef4-06621f3b3deb/DSCF0974.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/d4dc220b-d849-42aa-8a24-9998d752f224/DSCF0977.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/de50ca1a-054e-4bb2-9152-73112a0ed3ce/DSCF0983.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/d5612ca2-abc3-40a4-b27e-6a150188cf3f/DSCF0992.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/5491fbd6-b824-4fd1-add6-b02a231a9bad/DSCF1004.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/c0f74633-ee64-4a9e-8991-28f88a995603/DSCF1008.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/4cc58632-2fa3-4398-90a1-e0b32b6b4689/DSCF1016.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/4b07397d-6bdc-4733-b34a-d7015a145564/DSCF1021.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/7fa75365-1b00-4795-80b6-c34fa598890c/DSCF1037.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/15f35882-e19e-4c4e-8204-b9b1cb50dc3c/DSCF1044.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/368d4f6d-d28b-4e8b-bbf4-0bf9f9b3f3d2/DSCF1053.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/f7660ae3-b842-4437-8f86-72fcd66e00ae/DSCF1066.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1bdb0e3e-bdbf-414b-bbe6-87c25444b52b/DSCF1068.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/0059a791-4d34-477c-b6a5-e1a2833339c1/DSCF1071.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/6c2df458-22ef-4970-b09d-fbb0c0d140bc/DSCF1082.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/d4bd6388-9da0-406e-b9bb-343c0c82b638/DSCF1108.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/6b64ec52-065c-425e-ad1f-f2766c4aaf10/DSCF1120.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/409e4f13-ff15-41bb-a6b4-e21cd9f014f2/DSCF1121.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/01f183de-40aa-42f0-9652-c3dd21bce26d/DSCF1140.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/4c83a064-25f8-44d5-92b5-d4f8d996b408/DSCF1151.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/19fea77d-0dfb-441b-bcc2-23a3ff81d82e/DSCF1185.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/7c5851b5-75d0-4b92-a767-4e7a25a1a62b/DSCF1196.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/a3f2c8bc-95ac-4822-9ff5-3c9de69d5c28/DSCF1251.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/c5da598e-131f-4c9e-b223-3380e25c9620/DSCF1261.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/58616f3d-3a36-465e-9a64-85ed7bdd5fe9/DSCF1263.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/9941d691-fa0d-48c1-b4f6-43f166c3fcda/DSCF1272.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/ccbdc962-fe83-47bb-bbd8-7f0f8c288f65/DSCF1276.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/534a57c3-c59c-48f8-87d8-a8555fddde89/DSCF1286.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/e4a8848b-994d-4e5f-b1eb-81cde74b3342/DSCF1291.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/900c2149-1e00-483b-8898-a23879d733e9/DSCF1300.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/42101882-59c3-42d5-b343-aa6bfb78bd86/DSCF1304.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/8a105394-e030-4469-81b9-194bd4c8b165/DSCF1318.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/0d97b92d-fb8c-4115-9b26-6f4c4bb04b2d/DSCF1323.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/a1c83261-433f-4c99-97e9-97aac0705ceb/DSCF1330.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/96754412-ebde-47a7-91ee-3c1a944ce76c/DSCF1337.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1ff9cc03-8061-4044-8ce5-16f0b6b5ae57/DSCF1347.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/6ec600e0-3751-42e4-9290-ad64a54100d4/Radost+v+dushata+40x30.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/d0be6ad6-ba2b-4da3-a9c9-adc813f428d2/signature-%283%29.png?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/1725877618064-3TVN8GNPROSJ3OR7808M/Untitled-1.jpg?format=2500w
+https://images.squarespace-cdn.com/content/v1/66d6b92714f2477973337d60/b2ec1055-7133-4644-858f-bc82b2d0d359/signature-%282%29.png?format=1500w

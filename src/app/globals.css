@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens, extracted from the target's compiled stylesheet — see
+ * docs/design-tokens.md for where each value came from.
+ *
+ * Tailwind v4 is configured here rather than in a JS config file: every custom
+ * property declared in @theme becomes a utility (`--color-ink` → `bg-ink`,
+ * `text-ink`, `border-ink`, …).
+ *
+ * Names are roles, not colours: the original's palette is one near-black, one navy
+ * and one warm off-white on paper, and naming them that way keeps a future palette
+ * change out of the markup.
+ */
+@theme {
+  /* The original's four theme colours, converted from its HSL declarations. */
+  --color-ink: #2a2829; /* darkAccent — body copy and headings */
+  --color-accent: #253551; /* accent — links, rules, hover states */
+  --color-mist: #e0e0db; /* lightAccent — quiet section backgrounds */
+  --color-paper: #ffffff; /* white — the dominant ground */
+
+  /* Both wired up in layout.tsx via next/font. */
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  /* Gallery pacing: the original leans on generous, even whitespace. */
+  --ease-gentle: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+
+  /* Cyrillic display type at large sizes needs a little negative tracking to sit
+     evenly; the original sets this on every heading. */
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@utility caption-label {
+  @apply font-sans text-[11px] font-medium tracking-[0.18em] uppercase;
+}

@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+# Thin wrapper around Docker Compose.
+#
+# There is no Node.js on the host, so every npm/next command has to run inside the
+# container. This exists so that neither you nor an agent has to remember the
+# `docker compose run --rm web ...` incantation each time.
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+DC=(docker compose)
+RUN=("${DC[@]}" run --rm web)
+
+usage() {
+  cat <<'EOF'
+Usage: ./bin/dev <command> [args...]
+
+Server
+  up [-d]            Start the dev server on http://localhost:3000
+  down [-v]          Stop it (-v also drops the node_modules/.next volumes)
+  restart            Restart the web service
+  logs [-f]          Tail the dev server logs
+
+Code
+  typecheck          tsc --noEmit
+  lint               ESLint
+  lint:fix           ESLint --fix
+  format             Prettier --write
+  format:check       Prettier --check
+  check              typecheck + lint + format:check
+  build              Production build
+
+Dependencies
+  install [pkg...]   npm install (updates package-lock.json on the host)
+  npm <args...>      Any other npm command
+
+Scrape helpers
+  dims               Markdown table of public/ — size, dimensions, references
+  optimize [args]    Downscale and recompress public/ in place (--max, --quality, --dry-run)
+
+Escape hatches
+  shell              Interactive shell in a fresh container
+  exec <args...>     Run a command in the *running* dev container
+  prod               Build and run the production image locally
+EOF
+}
+
+cmd="${1:-help}"
+shift || true
+
+case "$cmd" in
+  up)          exec "${DC[@]}" up "$@" ;;
+  down)        exec "${DC[@]}" down "$@" ;;
+  restart)     exec "${DC[@]}" restart web "$@" ;;
+  logs)        exec "${DC[@]}" logs "$@" web ;;
+
+  typecheck|lint|lint:fix|format|format:check)
+               exec "${RUN[@]}" npm run "$cmd" "$@" ;;
+
+  # NODE_ENV must be overridden here. The compose service sets it to development for
+  # the dev server, and `next build` inherits it — which fails while prerendering
+  # /_global-error with "Cannot read properties of null (reading 'useContext')".
+  # Confusing failure, unrelated to the app code, so it is pinned rather than left
+  # to whatever the service happens to define.
+  build)       exec "${DC[@]}" run --rm -e NODE_ENV=production web npm run build "$@" ;;
+  check)       exec "${RUN[@]}" sh -c "npm run typecheck && npm run lint && npm run format:check" ;;
+
+  dims)        exec "${RUN[@]}" node scripts/asset-dims.mjs "$@" ;;
+  optimize)    exec "${RUN[@]}" node scripts/optimize-assets.mjs "$@" ;;
+
+  install)     exec "${RUN[@]}" npm install "$@" ;;
+  npm)         exec "${RUN[@]}" npm "$@" ;;
+
+  shell)       exec "${DC[@]}" run --rm -it web sh ;;
+  exec)        exec "${DC[@]}" exec web "$@" ;;
+  prod)        exec "${DC[@]}" -f compose.prod.yaml up --build "$@" ;;
+
+  help|-h|--help) usage ;;
+  *)           echo "Unknown command: $cmd" >&2; echo >&2; usage >&2; exit 1 ;;
+esac

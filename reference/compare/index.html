@@ -1,0 +1,51 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>http://web:3000 — original vs rebuild</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin:0; padding:24px; font:14px/1.5 ui-sans-serif,system-ui,sans-serif;
+         background:#0f172b; color:#e2e8f0; }
+  h1 { font-size:18px; margin:0 0 4px; }
+  .meta { color:#90a1b9; margin-bottom:28px; }
+  section { margin-bottom:56px; }
+  h2 { font-size:15px; font-family:ui-monospace,monospace; color:#7dd3fc;
+       border-bottom:1px solid #314158; padding-bottom:8px; }
+  .row { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+         gap:20px; margin-top:20px; }
+  figure { margin:0; }
+  figcaption { color:#90a1b9; font-size:12px; margin-bottom:6px;
+               font-family:ui-monospace,monospace; }
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  img { width:100%; border:1px solid #314158; border-radius:6px; background:#fff;
+        vertical-align:top; }
+  .missing { display:grid; place-items:center; height:200px; border:1px dashed #82181a;
+             border-radius:6px; color:#ff6568; font-size:12px; }
+</style>
+<h1>http://web:3000 — original vs rebuild</h1>
+<div class="meta">Left: <code>http://web:3000</code> &nbsp;·&nbsp; Right: local rebuild &nbsp;·&nbsp; 1 route(s)</div>
+<section>
+  <h2>/</h2>
+  <div class="row">
+    <figure>
+      <figcaption>mobile — 390px</figcaption>
+      <div class="pair">
+        <img loading="lazy" src="shots/index--mobile--original.png" alt="original">
+        <img loading="lazy" src="shots/index--mobile--local.png" alt="rebuild">
+      </div>
+    </figure>
+<figure>
+      <figcaption>tablet — 834px</figcaption>
+      <div class="pair">
+        <img loading="lazy" src="shots/index--tablet--original.png" alt="original">
+        <img loading="lazy" src="shots/index--tablet--local.png" alt="rebuild">
+      </div>
+    </figure>
+<figure>
+      <figcaption>desktop — 1440px</figcaption>
+      <div class="pair">
+        <img loading="lazy" src="shots/index--desktop--original.png" alt="original">
+        <img loading="lazy" src="shots/index--desktop--local.png" alt="rebuild">
+      </div>
+    </figure>
+  </div>
+</section>

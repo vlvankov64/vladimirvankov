@@ -1,0 +1,45 @@
+name: vladimirvankov-web
+
+services:
+  web:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Source is bind-mounted for hot reload...
+      - .:/app
+      # ...but node_modules and .next live in volumes: the host has no Node, the
+      # container's dependencies are Linux-built, and keeping .next off the
+      # bind mount avoids a large macOS filesystem-sync penalty on every build.
+      - node_modules:/app/node_modules
+      - next_cache:/app/.next
+    environment:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: "1"
+      # File-change events do not cross the macOS/Docker boundary reliably,
+      # so the watcher has to poll.
+      WATCHPACK_POLLING: "true"
+      CHOKIDAR_USEPOLLING: "true"
+    command: npm run dev
+
+  # Fidelity harness. Not started by default — `./scripts/compare.sh` brings it up on
+  # demand via the "tools" profile, passing ORIGIN in from site.config.json.
+  shots:
+    profiles: ["tools"]
+    build:
+      context: .
+      dockerfile: Dockerfile.shots
+    volumes:
+      - .:/repo
+    environment:
+      # Reaches the dev server over the compose network, not via the host.
+      LOCAL: "http://web:3000"
+    depends_on:
+      - web
+    init: true
+
+volumes:
+  node_modules:
+  next_cache:

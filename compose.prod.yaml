@@ -1,0 +1,18 @@
+# Production image, runnable locally to verify what actually ships.
+#   ./bin/dev prod      (or: docker compose -f compose.prod.yaml up --build)
+#
+# Deliberately a standalone file rather than an overlay on compose.yaml: the dev
+# service's bind mounts would survive an overlay merge and mask the built image.
+name: vladimirvankov-web-prod
+
+services:
+  web:
+    build:
+      context: .
+      target: runner
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+    restart: unless-stopped

@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:1
+
+# Screenshot runner for the fidelity harness.
+#
+# Separate from the app image on purpose: Playwright does not support Alpine, and
+# its browsers add ~1GB that has no business in the image we deploy. The npm
+# package version must match the image tag or the bundled browser revisions will
+# not be found.
+FROM mcr.microsoft.com/playwright:v1.62.1-noble
+
+ARG PLAYWRIGHT_VERSION=1.62.1
+WORKDIR /opt/shots
+
+RUN npm init -y >/dev/null \
+    && npm install --no-audit --no-fund "playwright@${PLAYWRIGHT_VERSION}"
+
+ENV NODE_PATH=/opt/shots/node_modules
+WORKDIR /repo
