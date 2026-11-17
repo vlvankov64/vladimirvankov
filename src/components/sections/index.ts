@@ -10,11 +10,10 @@ export {
   type ArtworkGroup,
   type GalleryImage,
 } from "./ArtworkGallery";
-export { BioProfile, type BioProfileProps } from "./BioProfile";
+export { BioProfile, type BioItem, type BioProfileProps } from "./BioProfile";
 export { GalleryPagination, type GalleryPaginationProps } from "./GalleryPagination";
 export { HomeHero, type HomeHeroProps } from "./HomeHero";
 export { JournalList, type JournalListProps } from "./JournalList";
-export { LinkButtons, type LinkButtonsProps } from "./LinkButtons";
 export { PageHeader, type PageHeaderProps } from "./PageHeader";
 export { PortfolioGrid, type PortfolioGridProps } from "./PortfolioGrid";
 export { Reviews, type ReviewsProps } from "./Reviews";

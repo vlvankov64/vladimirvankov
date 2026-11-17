@@ -49,10 +49,9 @@ route static, comparison sheets reviewed at 390 / 834 / 1440.
 
 ## Open questions
 
-| Question                                                                                                                                                                                                                   | Blocks                        | Raised     |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------- |
-| The authored prose — exhibition statement, the reflection beside each of the 15 works, three critics' pieces — is marked `TODO(owner)` in `content.ts`. Paste the full texts, or confirm the excerpts are what should ship | `/home/skulptura` reads short | this clone |
-| Both `/novini` posts are unedited Squarespace template content. Real titles, dates and bodies needed, or the section should be dropped                                                                                     | `/novini` and both posts      | this clone |
-| Is `Untitled-1.jpg` the intended banner for the sculpture page, or a working file left in place?                                                                                                                           | nothing — cosmetic            | this clone |
-| Should the galleries move from `/home/<slug>` to `/<slug>`, with redirects from the old paths?                                                                                                                             | nothing — a decision          | this clone |
-| Poppins has no Cyrillic subset; Cyrillic body copy falls back to the system stack, as it does on the original. Pick a Cyrillic-capable sans if that matters                                                                | nothing — cosmetic            | this clone |
+| Question                                                                                                                                                    | Blocks                   | Raised     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ---------- |
+| Both `/novini` posts are unedited Squarespace template content. Real titles, dates and bodies needed, or the section should be dropped                      | `/novini` and both posts | this clone |
+| Is `Untitled-1.jpg` the intended banner for the sculpture page, or a working file left in place?                                                            | nothing — cosmetic       | this clone |
+| Should the galleries move from `/home/<slug>` to `/<slug>`, with redirects from the old paths?                                                              | nothing — a decision     | this clone |
+| Poppins has no Cyrillic subset; Cyrillic body copy falls back to the system stack, as it does on the original. Pick a Cyrillic-capable sans if that matters | nothing — cosmetic       | this clone |

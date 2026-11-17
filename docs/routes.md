@@ -46,19 +46,19 @@ Either way, check status codes rather than assuming: `curl -sI` catches redirect
 
 ## Pages
 
-| Route                                     | Title             | Purpose                                                |   HTML | Status   |
-| ----------------------------------------- | ----------------- | ------------------------------------------------------ | -----: | -------- |
-| `/`                                       | Владимир Ванков   | Portrait, signature, one-line statement, 4-item grid   | 194 KB | **done** |
-| `/home/skulptura`                         | Скулптура         | Exhibition: statement, 4 films, 3 reviews, 15 works    | 2.3 MB | **done** |
-| `/home/bijuta`                            | Бижута            | 12 works, 27 photographs                               | 1.2 MB | **done** |
-| `/home/plastika`                          | Стъклена пластика | 13 works, 18 photographs                               | 495 KB | **done** |
-| `/home/kartini`                           | Картини           | 12 works, 13 photographs                               | 1.5 MB | **done** |
-| `/bio`                                    | Биография         | Career, education, exhibition record                   | 143 KB | **done** |
-| `/recenzii`                               | Рецензии          | Three reviews of the exhibition (moved from sculpture) |      — | **done** |
-| `/filmi`                                  | Филми             | Four exhibition films (moved from sculpture)           |      — | **done** |
-| `/novini`                                 | Новини            | News list — two template posts                         | 975 KB | **done** |
-| `/novini/blog-post-title-two-tcmjn-3d33l` | (placeholder)     | Template post, real photograph                         | 1.2 MB | **done** |
-| `/novini/qqqqqq`                          | (placeholder)     | Template post, real photograph                         | 128 KB | **done** |
+| Route                                     | Title             | Purpose                                                 |   HTML | Status   |
+| ----------------------------------------- | ----------------- | ------------------------------------------------------- | -----: | -------- |
+| `/`                                       | Владимир Ванков   | Portrait, signature, one-line statement, 4-item grid    | 194 KB | **done** |
+| `/home/skulptura`                         | Скулптура         | New works, then the cycle with buttons to reviews/films | 2.3 MB | **done** |
+| `/home/bijuta`                            | Бижута            | 12 works, 27 photographs                                | 1.2 MB | **done** |
+| `/home/plastika`                          | Стъклена пластика | 13 works, 18 photographs                                | 495 KB | **done** |
+| `/home/kartini`                           | Картини           | 12 works, 13 photographs                                | 1.5 MB | **done** |
+| `/bio`                                    | Биография         | Owner's biography of 05/2026, both languages            | 143 KB | **done** |
+| `/recenzii`                               | Рецензии          | Four reviews of the exhibition, in full                 |      — | **done** |
+| `/filmi`                                  | Филми             | Four exhibition films (moved from sculpture)            |      — | **done** |
+| `/novini`                                 | Новини            | News list — two template posts                          | 975 KB | **done** |
+| `/novini/blog-post-title-two-tcmjn-3d33l` | (placeholder)     | Template post, real photograph                          | 1.2 MB | **done** |
+| `/novini/qqqqqq`                          | (placeholder)     | Template post, real photograph                          | 128 KB | **done** |
 
 ## Languages
 
@@ -72,8 +72,9 @@ transcribe: the English side is a translation, and it is new content rather than
 
 What was translated, and what was not:
 
-- **Translated** — navigation, section headings, interface strings, work titles, materials,
-  and the whole biography record (career, education, exhibitions). These are short factual labels.
+- **Translated** — navigation, section headings, interface strings, work titles and materials.
+  These are short factual labels. The biography and the reviews now come from the owner in both
+  languages (revision of 2026-11-17 (2)), except two reviews supplied in one language only.
   Work titles use the exhibition's own English names where its English-language review supplies
   them (Alone, Vow, Fatherhood, Unwanted Gift, After the Others…, Where Now?), rather than fresh
   coinages.
@@ -124,11 +125,8 @@ The target serves none. It does serve two duplicate URLs, which redirect here ra
 
 ## Content not transcribed
 
-The long-form prose on `/home/skulptura` — the artist's exhibition statement, the fifteen
-reflections accompanying the works, and three critics' pieces — is the artist's and the writers' own
-authored work. Each field in `content.ts` carries a short attributed opening and a `TODO(owner)`
-marker; the components take any length, so pasting the full text is the only step needed. Work
-titles, materials and dimensions **are** transcribed verbatim.
+Nothing outstanding. The exhibition statement was dropped by the owner; the cycle's reflections
+(revision of 2026-11-17) and the reviews (revision 2) are now in full.
 
 ## Owner's revision of 2026-11-17
 
@@ -144,4 +142,18 @@ deliberately diverges from the original, so `compare.sh` no longer matches on th
   Maternity, Shaking Off, Where To Now?…), replacing the review-derived ones.
 - Jewellery, glass and painting changes: materials, order, a new work, photo swaps and splits —
   see the comments in each `src/content/galleries/*.ts`.
-- **Not done:** the biography replacement — the new text was not among the supplied files.
+- **Not done:** the biography replacement — the new text was not among the supplied files (done
+  in revision 2, below).
+
+## Owner's revision of 2026-11-17 (2)
+
+From `planned_changes/2026.11.17-2/корекции 2.docx` and the documents beside it:
+
+- Sculpture: the introductory statement before Пиета is gone. The buttons to the reviews and films
+  sit under the cycle heading „А сега накъде“ / стереолитография, 2024. The banner is framed
+  whole (`bannerFrame: "whole"`, 3:2) so the entire drop and a little of the base show.
+- `/recenzii`: four texts in full, in the owner's order — Prof. Pamukchiev (an opening-speech
+  remark, set as a quotation), Marta Karamihova, Erin Irwin, Boryana Mincheva. Irwin's (English
+  only) and Mincheva's (Bulgarian only) are printed as written on both locales, with `lang`.
+- `/bio`: replaced with the owner's „Биография и изложби до 05_2026“, both languages, including the
+  new solo, international and group exhibitions.

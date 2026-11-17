@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { SculpturePage } from "@/components/pages/SculpturePage";
+import { GalleryPage } from "@/components/pages/GalleryPage";
+import { gallery } from "@/content/galleries/skulptura";
 import { languageAlternates } from "@/lib/i18n";
 
 export const metadata: Metadata = {
@@ -12,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <SculpturePage locale="bg" />;
+  return <GalleryPage locale="bg" gallery={gallery} canonicalHref="/home/skulptura" />;
 }

@@ -6,6 +6,12 @@ export type PageHeaderProps = {
   /** Optional standfirst under the title. */
   intro?: string;
   image?: { src: string; alt: string; width: number; height: number };
+  /**
+   * `wide` (default): a letterbox crop, 16:10 on phones and 21:9 from `sm`.
+   * `whole`: the photograph's own 3:2 at every width, for a banner whose subject fills
+   * the frame top to bottom and must not be cut — the sculpture page's drop.
+   */
+  frame?: "wide" | "whole";
 };
 
 /**
@@ -19,7 +25,7 @@ export type PageHeaderProps = {
  * Over a busy photograph at 390 px the original's overlaid title is close to
  * unreadable, which is why the phone layout moves it out rather than dimming it.
  */
-export function PageHeader({ title, intro, image }: PageHeaderProps) {
+export function PageHeader({ title, intro, image, frame = "wide" }: PageHeaderProps) {
   if (!image) {
     return (
       <Container className="pt-12 pb-8 text-center lg:pt-20">
@@ -31,7 +37,11 @@ export function PageHeader({ title, intro, image }: PageHeaderProps) {
 
   return (
     <div className="relative">
-      <div className="relative aspect-[16/10] w-full overflow-hidden sm:aspect-[21/9]">
+      <div
+        className={`relative w-full overflow-hidden ${
+          frame === "whole" ? "aspect-[3/2]" : "aspect-[16/10] sm:aspect-[21/9]"
+        }`}
+      >
         <Image
           src={image.src}
           alt={image.alt}

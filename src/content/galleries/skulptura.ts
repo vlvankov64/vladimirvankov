@@ -1,50 +1,14 @@
 import type { BilingualGallery, BilingualWork } from "@/lib/gallery";
-import type { Localized } from "@/lib/i18n";
-import type { LinkButtonsProps, TextBlockProps } from "@/components/sections";
 
 /*
- * The sculpture page: statement, links to the reviews and films (which have their own
- * pages since the owner's revision of 2026-11-17), the newest works, then the cycle
- * "Where To Now?" with the reflection that is an integral part of each work.
+ * The sculpture page: the newest works, then the cycle "Where To Now?" with the
+ * reflection that is an integral part of each work. The cycle's heading carries buttons
+ * to the reviews and films, which have their own pages since the owner's revision of
+ * 2026-11-17. The introductory statement was dropped in the revision of 2026-11-17 (2).
  *
  * The cycle's texts and the English titles come from the artist's own documents
  * (V.Vankov-Texts WhereToNow-BG/EN), transcribed with only obvious typos corrected.
- *
- * The exhibition statement is still NOT transcribed in full — see docs/routes.md.
  */
-
-export const statement: Localized<TextBlockProps> = {
-  bg: {
-    heading: "Изложба „А сега накъде?“",
-    lead: true,
-    paragraphs: [
-      // TODO(owner): paste the full statement from the original page here.
-      "Чрез един абстрактен и минималистичен образен език анализирам някои морално-етични въпроси, неминуемо спохождащи всекиго от нас във времето.",
-      "Произведенията може да видите надолу в страницата.",
-    ],
-  },
-  en: {
-    heading: "Exhibition “Where To Now?”",
-    lead: true,
-    paragraphs: [
-      // TODO(owner): paste the full statement here, translated.
-      "Through an abstract, minimalist visual language I examine some of the moral and ethical questions that inevitably come to each of us in time.",
-      "The works are shown further down this page.",
-    ],
-  },
-};
-
-/** What is left of the reviews and films on this page: one button each. */
-export const moreLinks: Localized<LinkButtonsProps["links"]> = {
-  bg: [
-    { label: "Рецензии", href: "/recenzii" },
-    { label: "Филми", href: "/filmi" },
-  ],
-  en: [
-    { label: "Reviews", href: "/recenzii" },
-    { label: "Movies", href: "/filmi" },
-  ],
-};
 
 /** The newest works, shown first. */
 const newWorks: BilingualWork[] = [
@@ -266,13 +230,19 @@ export const gallery: BilingualGallery = {
   noun: { bg: "Скулптура", en: "Sculpture" },
   columns: 2,
   layout: "justified",
-  // The drop — the work "Where To Now?" itself.
+  // The drop — the work "Where To Now?" itself. Framed whole: the owner wants all of
+  // the drop and a little of the base it floats above in view.
   banner: { src: "/assets/_DSF2150-Enhanced-NR.jpg", width: 1920, height: 1280 },
+  bannerFrame: "whole",
   works: newWorks,
   groups: [
     {
       heading: { bg: "Цикъл „А сега накъде“", en: "Cycle of works “Where To Now”" },
       note: { bg: "стереолитография, 2024", en: "stereo lithography, 2024" },
+      links: [
+        { label: { bg: "Рецензии", en: "Reviews" }, href: "/recenzii" },
+        { label: { bg: "Филми", en: "Movies" }, href: "/filmi" },
+      ],
       works: cycleWorks,
     },
   ],

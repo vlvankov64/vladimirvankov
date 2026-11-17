@@ -1,3 +1,4 @@
+import { ButtonLinks, type ButtonLink } from "@/components/ui/ButtonLinks";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { ZoomableImage } from "@/components/ui/ZoomableImage";
@@ -20,6 +21,8 @@ export type ArtworkGroup = {
   heading: string;
   /** One line under the heading: technique, year. */
   note?: string;
+  /** Buttons under the heading, to pages about the group (its reviews, its films). */
+  links?: ButtonLink[];
   artworks: Artwork[];
 };
 
@@ -210,6 +213,9 @@ export function ArtworkGallery({
                   {group.heading}
                 </h2>
                 {group.note && <p className="mt-3 text-ink/60">{group.note}</p>}
+                {group.links && group.links.length > 0 && (
+                  <ButtonLinks links={group.links} className="mt-8" />
+                )}
               </header>
               {group.artworks.map((artwork, index) => (
                 <Work

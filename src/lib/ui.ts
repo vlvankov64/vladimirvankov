@@ -23,7 +23,6 @@ export const ui: Localized<{
   closeHint: string;
   previous: string;
   next: string;
-  fullText: string;
   languageLabel: string;
   skipToContent: string;
   /** Caption under the logo, which is the home link. */
@@ -41,7 +40,6 @@ export const ui: Localized<{
     closeHint: "ESC затваря",
     previous: "Предишно",
     next: "Следващо",
-    fullText: "Целият текст",
     languageLabel: "Език",
     skipToContent: "Към съдържанието",
     home: "Начало",
@@ -58,7 +56,6 @@ export const ui: Localized<{
     closeHint: "ESC to close",
     previous: "Previous",
     next: "Next",
-    fullText: "Full text",
     languageLabel: "Language",
     skipToContent: "Skip to content",
     home: "Home",

@@ -31,44 +31,43 @@ annotate their exports with it — that is what makes the type checker catch con
 
 ## Sections
 
-| Component           | Props                                        | Used by                            | Notes                                                                                                                                                                                        |
-| ------------------- | -------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PageHeader`        | `title`, `intro?`, `image?`                  | 4 galleries, `/novini`, both posts | Banner with the title over it from `sm` up, under it on a phone. Without `image` it degrades to a centred title                                                                              |
-| `ArtworkGallery`    | `artworks`, `groups?`, `columns?`, `layout?` | 4 galleries                        | The workhorse: one block per work — photographs, caption, optional `text` prose. `groups` adds titled runs (a cycle); `layout: "justified"` sets a row at one common height with no cropping |
-| `HomeHero`          | `portrait`, `signature`, `statement`         | `/`                                | Portrait beside signature and statement; stacks below `lg`                                                                                                                                   |
-| `PortfolioGrid`     | `heading`, `items`                           | `/`                                | The four disciplines as title-over-image cards, 2 columns on a phone                                                                                                                         |
-| `GalleryPagination` | `current`                                    | 4 galleries                        | Prev/next derived from `galleryChain`, not written per page                                                                                                                                  |
-| `TextBlock`         | `paragraphs`, `heading?`, `tone?`, `lead?`   | `/home/skulptura`, both posts      | Running prose at reading measure                                                                                                                                                             |
-| `VideoGrid`         | `videos`, `heading?`, `note?`                | `/filmi`                           | Lazy `youtube-nocookie` iframes                                                                                                                                                              |
-| `Reviews`           | `heading`, `reviews`                         | `/recenzii`                        | Attributed press blocks; takes any excerpt length                                                                                                                                            |
-| `LinkButtons`       | `links`, `heading?`                          | `/home/skulptura`                  | Centred row of outlined button links — what remains of the reviews and films on the sculpture page                                                                                           |
-| `BioProfile`        | `portrait`, `standfirst`, `groups`           | `/bio`                             | Portrait beside a grouped factual record                                                                                                                                                     |
-| `JournalList`       | `posts`, `emptyNote?`                        | `/novini`                          | Post list with an empty state                                                                                                                                                                |
+| Component           | Props                                        | Used by                            | Notes                                                                                                                                                                                                                                             |
+| ------------------- | -------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PageHeader`        | `title`, `intro?`, `image?`, `frame?`        | 4 galleries, `/novini`, both posts | Banner with the title over it from `sm` up, under it on a phone. Without `image` it degrades to a centred title; `frame: "whole"` keeps the photo's 3:2                                                                                           |
+| `ArtworkGallery`    | `artworks`, `groups?`, `columns?`, `layout?` | 4 galleries                        | The workhorse: one block per work — photographs, caption, optional `text` prose. `groups` adds titled runs (a cycle), each with optional button `links` under its heading; `layout: "justified"` sets a row at one common height with no cropping |
+| `HomeHero`          | `portrait`, `signature`, `statement`         | `/`                                | Portrait beside signature and statement; stacks below `lg`                                                                                                                                                                                        |
+| `PortfolioGrid`     | `heading`, `items`                           | `/`                                | The four disciplines as title-over-image cards, 2 columns on a phone                                                                                                                                                                              |
+| `GalleryPagination` | `current`                                    | 4 galleries                        | Prev/next derived from `galleryChain`, not written per page                                                                                                                                                                                       |
+| `TextBlock`         | `paragraphs`, `heading?`, `tone?`, `lead?`   | both posts                         | Running prose at reading measure                                                                                                                                                                                                                  |
+| `VideoGrid`         | `videos`, `heading?`, `note?`                | `/filmi`                           | Lazy `youtube-nocookie` iframes                                                                                                                                                                                                                   |
+| `Reviews`           | `heading`, `reviews`                         | `/recenzii`                        | Full attributed texts; `quote` for a short remark, `lang` for a text left untranslated                                                                                                                                                            |
+| `BioProfile`        | `name`, `portrait`, `standfirst`, `groups`   | `/bio`                             | Name (`h1`) and portrait beside a grouped factual record; an item may carry sub-lines (a touring exhibition)                                                                                                                                      |
+| `JournalList`       | `posts`, `emptyNote?`                        | `/novini`                          | Post list with an empty state                                                                                                                                                                                                                     |
 
 ## Page components
 
 One composition per page, in `src/components/pages/`, rendered by each locale's thin route file.
 Without these, a bilingual site duplicates every page's JSX once per language.
 
-| Component       | Props                                | Routes | Notes                                       |
-| --------------- | ------------------------------------ | -----: | ------------------------------------------- |
-| `HomePage`      | `locale`                             |      2 | Hero + portfolio grid                       |
-| `GalleryPage`   | `locale`, `gallery`, `canonicalHref` |      6 | Three of the four galleries, both languages |
-| `SculpturePage` | `locale`                             |      2 | Its own: statement and buttons on top       |
-| `ReviewsPage`   | `locale`                             |      2 | Page title + `Reviews`                      |
-| `FilmsPage`     | `locale`                             |      2 | Page title + `VideoGrid`                    |
-| `BioPage`       | `locale`                             |      2 | Portrait + grouped record                   |
-| `NewsPage`      | `locale`                             |      2 | Post list                                   |
-| `PostPage`      | `locale`, `index`                    |      4 | One template post                           |
+| Component     | Props                                | Routes | Notes                              |
+| ------------- | ------------------------------------ | -----: | ---------------------------------- |
+| `HomePage`    | `locale`                             |      2 | Hero + portfolio grid              |
+| `GalleryPage` | `locale`, `gallery`, `canonicalHref` |      8 | All four galleries, both languages |
+| `ReviewsPage` | `locale`                             |      2 | Page title + `Reviews`             |
+| `FilmsPage`   | `locale`                             |      2 | Page title + `VideoGrid`           |
+| `BioPage`     | `locale`                             |      2 | Portrait + grouped record          |
+| `NewsPage`    | `locale`                             |      2 | Post list                          |
+| `PostPage`    | `locale`, `index`                    |      4 | One template post                  |
 
 ## UI primitives
 
-| Component       | Props                                                 | Notes                                            |
-| --------------- | ----------------------------------------------------- | ------------------------------------------------ |
-| `Container`     | `children`, `className?`, `width?`                    | `wide` (1400px) or `text` (reading measure)      |
-| `Section`       | `tone?`, `id?`, `className?`                          | Full-bleed band: `paper`, `mist` or `ink`        |
-| `InstagramIcon` | `className?`                                          | Inline SVG — no icon font, no image request      |
-| `ZoomableImage` | `src`, `alt`, `width`, `height`, `sizes`, `priority?` | **Client.** Gallery image that opens full-screen |
+| Component       | Props                                                 | Notes                                                                         |
+| --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `Container`     | `children`, `className?`, `width?`                    | `wide` (1400px) or `text` (reading measure)                                   |
+| `Section`       | `tone?`, `id?`, `className?`                          | Full-bleed band: `paper`, `mist` or `ink`                                     |
+| `InstagramIcon` | `className?`                                          | Inline SVG — no icon font, no image request                                   |
+| `ZoomableImage` | `src`, `alt`, `width`, `height`, `sizes`, `priority?` | **Client.** Gallery image that opens full-screen                              |
+| `ButtonLinks`   | `links`, `className?`                                 | Centred row of outlined button links — the sculpture cycle's Reviews / Movies |
 
 ## Client components
 

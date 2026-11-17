@@ -1,5 +1,6 @@
 import type { ArtworkGalleryProps, PageHeaderProps } from "@/components/sections";
 import type { Locale, Localized } from "@/lib/i18n";
+import { localizePath } from "@/lib/i18n";
 
 /**
  * Bilingual gallery content, and the resolvers that turn it into section props.
@@ -41,10 +42,14 @@ export type BilingualWorkGroup = {
   heading: Localized<string>;
   /** One line under the heading: technique, year. */
   note?: Localized<string>;
+  /** Buttons under the heading; `href` is the default-locale path, prefixed per locale. */
+  links?: { label: Localized<string>; href: string }[];
   works: BilingualWork[];
 };
 
 export type BilingualGallery = {
+  /** How the banner is framed — see `PageHeaderProps["frame"]`. */
+  bannerFrame?: PageHeaderProps["frame"];
   /** Page title, and the noun used to build each image's alt text. */
   title: Localized<string>;
   noun: Localized<string>;
@@ -70,6 +75,7 @@ function altFor(gallery: BilingualGallery, work: BilingualWork, index: number, l
 export function galleryHeader(gallery: BilingualGallery, locale: Locale): PageHeaderProps {
   return {
     title: gallery.title[locale],
+    frame: gallery.bannerFrame,
     image: {
       src: gallery.banner.src,
       alt: `${gallery.title[locale]} — Vladimir Vankov`,
@@ -107,6 +113,10 @@ export function galleryBody(
     groups: gallery.groups?.map((group) => ({
       heading: group.heading[locale],
       note: group.note?.[locale],
+      links: group.links?.map((link) => ({
+        label: link.label[locale],
+        href: localizePath(link.href, locale),
+      })),
       artworks: group.works.map(resolve),
     })),
   };
