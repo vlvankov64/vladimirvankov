@@ -23,26 +23,27 @@ annotate their exports with it — that is what makes the type checker catch con
 
 ## Layout
 
-| Component   | Props                                         | Used by    | Notes                                                                                                   |
-| ----------- | --------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------- |
-| `Header`    | none (reads `mainNav`, `social`, `siteLogo`)  | every page | Sticky, translucent. Signature centred, nav centred beneath, social out left — the target's arrangement |
-| `Footer`    | none (reads `contact`, `social`, `SITE_NAME`) | every page | Contact details rather than links — the target has no footer nav                                        |
-| `MobileNav` | `items`                                       | `Header`   | **Client.** The only one — see below                                                                    |
+| Component   | Props                                         | Used by    | Notes                                                                                                                |
+| ----------- | --------------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------- |
+| `Header`    | none (reads `mainNav`, `social`, `siteLogo`)  | every page | Sticky, translucent. Signature centred as a framed home button captioned Начало / Home, nav beneath, social out left |
+| `Footer`    | none (reads `contact`, `social`, `SITE_NAME`) | every page | Contact details rather than links — the target has no footer nav                                                     |
+| `MobileNav` | `items`                                       | `Header`   | **Client.** The only one — see below                                                                                 |
 
 ## Sections
 
-| Component           | Props                                      | Used by                            | Notes                                                                                                           |
-| ------------------- | ------------------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `PageHeader`        | `title`, `intro?`, `image?`                | 4 galleries, `/novini`, both posts | Banner with the title over it from `sm` up, under it on a phone. Without `image` it degrades to a centred title |
-| `ArtworkGallery`    | `artworks`, `columns?`                     | 4 galleries                        | The workhorse: one block per work — photographs, then caption. `columns` is 2 or 3                              |
-| `HomeHero`          | `portrait`, `signature`, `statement`       | `/`                                | Portrait beside signature and statement; stacks below `lg`                                                      |
-| `PortfolioGrid`     | `heading`, `items`                         | `/`                                | The four disciplines as title-over-image cards, 2 columns on a phone                                            |
-| `GalleryPagination` | `current`                                  | 4 galleries                        | Prev/next derived from `galleryChain`, not written per page                                                     |
-| `TextBlock`         | `paragraphs`, `heading?`, `tone?`, `lead?` | `/home/skulptura`, both posts      | Running prose at reading measure                                                                                |
-| `VideoGrid`         | `videos`, `heading?`, `note?`              | `/home/skulptura`                  | Lazy `youtube-nocookie` iframes                                                                                 |
-| `Reviews`           | `heading`, `reviews`                       | `/home/skulptura`                  | Attributed press blocks; takes any excerpt length                                                               |
-| `BioProfile`        | `portrait`, `standfirst`, `groups`         | `/bio`                             | Portrait beside a grouped factual record                                                                        |
-| `JournalList`       | `posts`, `emptyNote?`                      | `/novini`                          | Post list with an empty state                                                                                   |
+| Component           | Props                                        | Used by                            | Notes                                                                                                                                                                                        |
+| ------------------- | -------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PageHeader`        | `title`, `intro?`, `image?`                  | 4 galleries, `/novini`, both posts | Banner with the title over it from `sm` up, under it on a phone. Without `image` it degrades to a centred title                                                                              |
+| `ArtworkGallery`    | `artworks`, `groups?`, `columns?`, `layout?` | 4 galleries                        | The workhorse: one block per work — photographs, caption, optional `text` prose. `groups` adds titled runs (a cycle); `layout: "justified"` sets a row at one common height with no cropping |
+| `HomeHero`          | `portrait`, `signature`, `statement`         | `/`                                | Portrait beside signature and statement; stacks below `lg`                                                                                                                                   |
+| `PortfolioGrid`     | `heading`, `items`                           | `/`                                | The four disciplines as title-over-image cards, 2 columns on a phone                                                                                                                         |
+| `GalleryPagination` | `current`                                    | 4 galleries                        | Prev/next derived from `galleryChain`, not written per page                                                                                                                                  |
+| `TextBlock`         | `paragraphs`, `heading?`, `tone?`, `lead?`   | `/home/skulptura`, both posts      | Running prose at reading measure                                                                                                                                                             |
+| `VideoGrid`         | `videos`, `heading?`, `note?`                | `/filmi`                           | Lazy `youtube-nocookie` iframes                                                                                                                                                              |
+| `Reviews`           | `heading`, `reviews`                         | `/recenzii`                        | Attributed press blocks; takes any excerpt length                                                                                                                                            |
+| `LinkButtons`       | `links`, `heading?`                          | `/home/skulptura`                  | Centred row of outlined button links — what remains of the reviews and films on the sculpture page                                                                                           |
+| `BioProfile`        | `portrait`, `standfirst`, `groups`           | `/bio`                             | Portrait beside a grouped factual record                                                                                                                                                     |
+| `JournalList`       | `posts`, `emptyNote?`                        | `/novini`                          | Post list with an empty state                                                                                                                                                                |
 
 ## Page components
 
@@ -53,7 +54,9 @@ Without these, a bilingual site duplicates every page's JSX once per language.
 | --------------- | ------------------------------------ | -----: | ------------------------------------------- |
 | `HomePage`      | `locale`                             |      2 | Hero + portfolio grid                       |
 | `GalleryPage`   | `locale`, `gallery`, `canonicalHref` |      6 | Three of the four galleries, both languages |
-| `SculpturePage` | `locale`                             |      2 | Its own: statement, films and press on top  |
+| `SculpturePage` | `locale`                             |      2 | Its own: statement and buttons on top       |
+| `ReviewsPage`   | `locale`                             |      2 | Page title + `Reviews`                      |
+| `FilmsPage`     | `locale`                             |      2 | Page title + `VideoGrid`                    |
 | `BioPage`       | `locale`                             |      2 | Portrait + grouped record                   |
 | `NewsPage`      | `locale`                             |      2 | Post list                                   |
 | `PostPage`      | `locale`, `index`                    |      4 | One template post                           |

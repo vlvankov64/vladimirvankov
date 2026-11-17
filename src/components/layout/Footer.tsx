@@ -25,7 +25,7 @@ export function Footer({ locale }: { locale: Locale }) {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="font-display text-sm text-paper/70 transition-colors hover:text-paper lg:text-base"
+                  className="font-display text-base text-paper/75 transition-colors hover:text-paper lg:text-lg"
                 >
                   {item.label}
                 </Link>

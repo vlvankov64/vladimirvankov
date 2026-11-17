@@ -17,14 +17,13 @@ export const gallery: BilingualGallery = {
       photos: [
         { src: "/assets/DSCF0974.jpg", width: 1163, height: 1163 },
         { src: "/assets/DSCF0966.jpg", width: 1198, height: 1198 },
+        // The triptych's third panel — once shown on the next row, under the next title.
+        { src: "/assets/DSCF0962.jpg", width: 1246, height: 1246 },
       ],
     },
     {
       title: { bg: "ПРОЗОЧЕТО НА ТАЙНИТЕ", en: "THE WINDOW OF SECRETS" },
-      photos: [
-        { src: "/assets/DSCF0962.jpg", width: 1246, height: 1246 },
-        { src: "/assets/DSCF1004.jpg", width: 1252, height: 1252 },
-      ],
+      photos: [{ src: "/assets/DSCF1004.jpg", width: 1252, height: 1252 }],
     },
     {
       title: { bg: "ТАЙНАТА НА ОКЕАНА", en: "THE SECRET OF THE OCEAN" },
@@ -44,7 +43,8 @@ export const gallery: BilingualGallery = {
     },
     {
       title: { bg: "КРИСТАЛНО ЦВЕТЕ 1", en: "CRYSTAL FLOWER 1" },
-      photos: [{ src: "/assets/DSCF0940.jpg", width: 1280, height: 1920 }],
+      // Photograph swapped with Crystal Flower 8 (now 9) in the owner's revision.
+      photos: [{ src: "/assets/DSCF0933.jpg", width: 1280, height: 1920 }],
     },
     {
       title: { bg: "КРИСТАЛНО ЦВЕТЕ 2", en: "CRYSTAL FLOWER 2" },
@@ -52,27 +52,29 @@ export const gallery: BilingualGallery = {
     },
     {
       title: { bg: "КРИСТАЛНО ЦВЕТЕ 3", en: "CRYSTAL FLOWER 3" },
-      photos: [
-        { src: "/assets/DSCF0937.jpg", width: 1280, height: 1920 },
-        { src: "/assets/DSCF0929.jpg", width: 1230, height: 1230 },
-      ],
+      photos: [{ src: "/assets/DSCF0937.jpg", width: 1280, height: 1920 }],
     },
     {
+      // Once shown as a second photograph of Crystal Flower 3; a separate work.
       title: { bg: "КРИСТАЛНО ЦВЕТЕ 4", en: "CRYSTAL FLOWER 4" },
-      photos: [{ src: "/assets/DSCF0948.jpg", width: 1239, height: 1239 }],
+      photos: [{ src: "/assets/DSCF0929.jpg", width: 1230, height: 1230 }],
     },
     {
       title: { bg: "КРИСТАЛНО ЦВЕТЕ 5", en: "CRYSTAL FLOWER 5" },
-      photos: [{ src: "/assets/DSCF0951.jpg", width: 1280, height: 1920 }],
+      photos: [{ src: "/assets/DSCF0948.jpg", width: 1239, height: 1239 }],
     },
     {
       title: { bg: "КРИСТАЛНО ЦВЕТЕ 6", en: "CRYSTAL FLOWER 6" },
-      lines: { bg: ["КРИСТАЛНО ЦВЕТЕ 7"], en: ["CRYSTAL FLOWER 7"] },
+      photos: [{ src: "/assets/DSCF0951.jpg", width: 1280, height: 1920 }],
+    },
+    {
+      title: { bg: "КРИСТАЛНО ЦВЕТЕ 7", en: "CRYSTAL FLOWER 7" },
+      lines: { bg: ["КРИСТАЛНО ЦВЕТЕ 8"], en: ["CRYSTAL FLOWER 8"] },
       photos: [{ src: "/assets/DSCF0945.jpg", width: 1231, height: 1231 }],
     },
     {
-      title: { bg: "КРИСТАЛНО ЦВЕТЕ 8", en: "CRYSTAL FLOWER 8" },
-      photos: [{ src: "/assets/DSCF0933.jpg", width: 1280, height: 1920 }],
+      title: { bg: "КРИСТАЛНО ЦВЕТЕ 9", en: "CRYSTAL FLOWER 9" },
+      photos: [{ src: "/assets/DSCF0940.jpg", width: 1280, height: 1920 }],
     },
     {
       title: { bg: "НАСТРОЕНИЕ", en: "MOOD" },

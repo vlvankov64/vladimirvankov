@@ -4,7 +4,7 @@ import { languageAlternates } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Sculpture",
-  description: "The exhibition “Where Now?” — sculpture by Vladimir Vankov.",
+  description: "Sculpture by Vladimir Vankov, including the cycle “Where To Now?”.",
   alternates: {
     canonical: "/en/home/skulptura",
     languages: languageAlternates("/home/skulptura"),

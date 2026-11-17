@@ -25,10 +25,23 @@ export type BilingualWork = {
   /** Dimensions in the target's own notation — numbers, so not translated. */
   dimensions?: string;
   /**
+   * Prose printed after the work — for the "Where To Now?" cycle, the reflection the
+   * artist treats as an integral part of each piece. One string per paragraph.
+   */
+  text?: Localized<string[]>;
+  /**
    * Photographs of this work. May be empty: the original prints a caption for a work
    * whose photograph is not on the page, and dropping it would lose a listed work.
    */
   photos: GalleryPhoto[];
+};
+
+/** A titled run of works after the ungrouped ones — a cycle or a series. */
+export type BilingualWorkGroup = {
+  heading: Localized<string>;
+  /** One line under the heading: technique, year. */
+  note?: Localized<string>;
+  works: BilingualWork[];
 };
 
 export type BilingualGallery = {
@@ -37,7 +50,9 @@ export type BilingualGallery = {
   noun: Localized<string>;
   banner: GalleryPhoto;
   columns?: 2 | 3;
+  layout?: ArtworkGalleryProps["layout"];
   works: BilingualWork[];
+  groups?: BilingualWorkGroup[];
 };
 
 const detailWord: Localized<string> = { bg: "детайл", en: "detail" };
@@ -72,18 +87,27 @@ export function galleryBody(
   gallery: BilingualGallery,
   locale: Locale,
 ): Omit<ArtworkGalleryProps, "zoomLabel"> {
+  const resolve = (work: BilingualWork) => ({
+    title: work.title?.[locale],
+    lines: work.lines?.[locale],
+    dimensions: work.dimensions,
+    text: work.text?.[locale],
+    images: work.photos.map((photo, index) => ({
+      src: photo.src,
+      alt: altFor(gallery, work, index, locale),
+      width: photo.width,
+      height: photo.height,
+    })),
+  });
+
   return {
     columns: gallery.columns,
-    artworks: gallery.works.map((work) => ({
-      title: work.title?.[locale],
-      lines: work.lines?.[locale],
-      dimensions: work.dimensions,
-      images: work.photos.map((photo, index) => ({
-        src: photo.src,
-        alt: altFor(gallery, work, index, locale),
-        width: photo.width,
-        height: photo.height,
-      })),
+    layout: gallery.layout,
+    artworks: gallery.works.map(resolve),
+    groups: gallery.groups?.map((group) => ({
+      heading: group.heading[locale],
+      note: group.note?.[locale],
+      artworks: group.works.map(resolve),
     })),
   };
 }

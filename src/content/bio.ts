@@ -6,7 +6,7 @@ import type { Localized } from "@/lib/i18n";
  * The Bulgarian column is transcribed from the original verbatim, including its own
  * punctuation and date formats. The English column is a translation of the same factual
  * record; company, gallery and place names are kept, and exhibition titles use the
- * English forms the site itself uses where it has one (Where Now?).
+ * English forms the site itself uses where it has one (Where To Now?).
  *
  * The original prints all of it as one undivided column of paragraphs. The headings are
  * ours — the original's own inline "Образование:" and "Изложби:" labels promoted to real
@@ -65,7 +65,7 @@ export const groups: { heading: Localized<string>; items: Localized<string>[] }[
     items: [
       {
         bg: "Самостоятелна изложба А сега накъде ? - 10.2024 - галерия 158 София",
-        en: "Solo exhibition Where Now? — 10.2024 — Gallery 158, Sofia",
+        en: "Solo exhibition Where To Now? — 10.2024 — Gallery 158, Sofia",
       },
       {
         bg: "Пътуващи пейзажи - 2024 – галерия Папийон Варна - участие",

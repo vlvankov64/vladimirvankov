@@ -84,6 +84,22 @@ Regenerate with `./bin/dev dims`. `Pages` counts how many snapshots reference th
 - **No `alt` text anywhere in the original.** Every `alt` in the rebuild was written for it, from the
   work's own title (`Бижу „SEA DREAMS“`, detail shots suffixed `(детайл)`).
 
+## Owner-supplied assets
+
+Added in the revision of 2026-11-17 from `planned_changes/2026.11.17/` (gitignored), renamed to
+URL-safe lowercase names and run through `./bin/dev optimize` like everything else: 3.7 MB → 0.75 MB.
+
+| File                        | Dimensions | Size   | Used by                 |
+| --------------------------- | ---------- | ------ | ----------------------- |
+| `/assets/pieta.jpg`         | 1353×1800  | 148 KB | Скулптура — Пиета       |
+| `/assets/i-go-on-1.jpg`     | 1350×1800  | 184 KB | Скулптура — Продължавам |
+| `/assets/i-go-on-2.jpg`     | 1350×1800  | 171 KB | Скулптура — Продължавам |
+| `/assets/my-way-1…4.jpg`    | ~445×594   | ~22 KB | Скулптура — Моят път    |
+| `/assets/an-old-secret.jpg` | 1523×1800  | 178 KB | Бижута — Стара тайна    |
+
+**The four "My way" photographs arrived at ~445 px wide.** They sit in one justified row, which
+keeps them near native size on desktop; a larger version would be worth asking for.
+
 ## Retired assets
 
 The original's four home-page category cards (`1.jpg`–`4.jpg`) are **not shipped**. Each is a

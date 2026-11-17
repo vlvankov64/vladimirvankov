@@ -54,7 +54,11 @@ export const portfolioCards: {
   href: string;
   image: PortfolioGridProps["items"][number]["image"];
 }[] = [
-  { href: "/home/skulptura", image: { src: "/assets/Untitled-1.jpg", width: 1920, height: 1080 } },
+  {
+    href: "/home/skulptura",
+    // The drop — the work "Where To Now?" — per the owner's revision of 2026-11-17.
+    image: { src: "/assets/_DSF2150-Enhanced-NR.jpg", width: 1920, height: 1280 },
+  },
   { href: "/home/bijuta", image: { src: "/assets/DSCF1053.jpg", width: 1920, height: 1280 } },
   { href: "/home/plastika", image: { src: "/assets/DSCF0992.jpg", width: 1920, height: 1280 } },
   { href: "/home/kartini", image: { src: "/assets/_DSF6488.jpg", width: 1920, height: 1365 } },

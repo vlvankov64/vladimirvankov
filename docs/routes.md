@@ -46,17 +46,19 @@ Either way, check status codes rather than assuming: `curl -sI` catches redirect
 
 ## Pages
 
-| Route                                     | Title             | Purpose                                              |   HTML | Status   |
-| ----------------------------------------- | ----------------- | ---------------------------------------------------- | -----: | -------- |
-| `/`                                       | Владимир Ванков   | Portrait, signature, one-line statement, 4-item grid | 194 KB | **done** |
-| `/home/skulptura`                         | Скулптура         | Exhibition: statement, 4 films, 3 reviews, 15 works  | 2.3 MB | **done** |
-| `/home/bijuta`                            | Бижута            | 12 works, 27 photographs                             | 1.2 MB | **done** |
-| `/home/plastika`                          | Стъклена пластика | 13 works, 18 photographs                             | 495 KB | **done** |
-| `/home/kartini`                           | Картини           | 12 works, 13 photographs                             | 1.5 MB | **done** |
-| `/bio`                                    | Биография         | Career, education, exhibition record                 | 143 KB | **done** |
-| `/novini`                                 | Новини            | News list — two template posts                       | 975 KB | **done** |
-| `/novini/blog-post-title-two-tcmjn-3d33l` | (placeholder)     | Template post, real photograph                       | 1.2 MB | **done** |
-| `/novini/qqqqqq`                          | (placeholder)     | Template post, real photograph                       | 128 KB | **done** |
+| Route                                     | Title             | Purpose                                                |   HTML | Status   |
+| ----------------------------------------- | ----------------- | ------------------------------------------------------ | -----: | -------- |
+| `/`                                       | Владимир Ванков   | Portrait, signature, one-line statement, 4-item grid   | 194 KB | **done** |
+| `/home/skulptura`                         | Скулптура         | Exhibition: statement, 4 films, 3 reviews, 15 works    | 2.3 MB | **done** |
+| `/home/bijuta`                            | Бижута            | 12 works, 27 photographs                               | 1.2 MB | **done** |
+| `/home/plastika`                          | Стъклена пластика | 13 works, 18 photographs                               | 495 KB | **done** |
+| `/home/kartini`                           | Картини           | 12 works, 13 photographs                               | 1.5 MB | **done** |
+| `/bio`                                    | Биография         | Career, education, exhibition record                   | 143 KB | **done** |
+| `/recenzii`                               | Рецензии          | Three reviews of the exhibition (moved from sculpture) |      — | **done** |
+| `/filmi`                                  | Филми             | Four exhibition films (moved from sculpture)           |      — | **done** |
+| `/novini`                                 | Новини            | News list — two template posts                         | 975 KB | **done** |
+| `/novini/blog-post-title-two-tcmjn-3d33l` | (placeholder)     | Template post, real photograph                         | 1.2 MB | **done** |
+| `/novini/qqqqqq`                          | (placeholder)     | Template post, real photograph                         | 128 KB | **done** |
 
 ## Languages
 
@@ -86,8 +88,9 @@ reviewed one.
 
 ## Navigation
 
-One flat set, six links, in this order: Скулптура, Бижута, Стъклена пластика, Картини, Биография,
-Новини — plus an Instagram icon. No dropdowns, no logo image, and no pages linked from body copy
+One flat set, eight links, in this order: Скулптура, Бижута, Стъклена пластика, Картини, Биография,
+Рецензии, Филми, Новини — plus Instagram and Facebook icons. Рецензии and Филми are not on the
+original; they were added in the owner's revision of 2026-11-17 (see below). No dropdowns, no logo image, and no pages linked from body copy
 only. Transcribed into `mainNav` in `src/lib/nav.ts`.
 
 The four galleries are also chained by prev/next pagination at the foot of each:
@@ -126,3 +129,19 @@ reflections accompanying the works, and three critics' pieces — is the artist'
 authored work. Each field in `content.ts` carries a short attributed opening and a `TODO(owner)`
 marker; the components take any length, so pasting the full text is the only step needed. Work
 titles, materials and dimensions **are** transcribed verbatim.
+
+## Owner's revision of 2026-11-17
+
+The first content pass, from `planned_changes/2026.11.17/корекции сайт.docx` (gitignored). It
+deliberately diverges from the original, so `compare.sh` no longer matches on these points:
+
+- Logo is a framed home button captioned Начало / Home; one sans face (Montserrat) everywhere;
+  larger header and footer nav.
+- Reviews and films moved to `/recenzii` and `/filmi`; the sculpture page keeps a button to each.
+- Sculpture: banner and home card show the drop („А сега накъде?“); new works Пиета, Продължавам,
+  Моят път first; the rest grouped as the cycle „А сега накъде“ (stereolithography, 2024), each
+  with its text from the artist's documents. English titles follow those documents (Paternity,
+  Maternity, Shaking Off, Where To Now?…), replacing the review-derived ones.
+- Jewellery, glass and painting changes: materials, order, a new work, photo swaps and splits —
+  see the comments in each `src/content/galleries/*.ts`.
+- **Not done:** the biography replacement — the new text was not among the supplied files.

@@ -33,7 +33,7 @@ export function PortfolioGrid({ heading, items }: PortfolioGridProps) {
   return (
     <Section className="pb-14 lg:pb-24">
       <Container>
-        <h2 className="mb-8 text-center font-display text-3xl text-ink italic lg:mb-12 lg:text-5xl">
+        <h2 className="mb-8 text-center font-display text-3xl text-ink lg:mb-12 lg:text-5xl">
           {heading}
         </h2>
 

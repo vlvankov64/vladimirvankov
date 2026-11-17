@@ -8,8 +8,8 @@ import { localizePath } from "@/lib/i18n";
  * `href` is always the **canonical** (unprefixed) path. `navFor(locale)` prefixes it for
  * the locale being rendered, so no localised URL is ever written by hand.
  *
- * Bulgarian labels are the target's own, verbatim. English labels are translations of
- * them; the original is monolingual, so there is no English wording to transcribe.
+ * Bulgarian labels are the target's own, verbatim, except Рецензии and Филми — added in
+ * the owner's revision of 2026-11-17, with the owner's English (Reviews, Movies).
  */
 
 export type NavNode = { label: string; href: string };
@@ -22,6 +22,8 @@ const nav: NavSource[] = [
   { label: { bg: "Стъклена пластика", en: "Glass Art" }, href: "/home/plastika" },
   { label: { bg: "Картини", en: "Paintings" }, href: "/home/kartini" },
   { label: { bg: "Биография", en: "Biography" }, href: "/bio" },
+  { label: { bg: "Рецензии", en: "Reviews" }, href: "/recenzii" },
+  { label: { bg: "Филми", en: "Movies" }, href: "/filmi" },
   { label: { bg: "Новини", en: "News" }, href: "/novini" },
 ];
 

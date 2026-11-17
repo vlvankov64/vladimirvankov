@@ -10,6 +10,8 @@ export const gallery: BilingualGallery = {
   title: { bg: "Бижута", en: "Jewellery" },
   noun: { bg: "Бижу", en: "Jewellery piece" },
   columns: 3,
+  // One row per work at a common height — the portrait overview beside its details.
+  layout: "justified",
   banner: { src: "/assets/DSCF1053.jpg", width: 1920, height: 1280 },
   works: [
     {
@@ -37,6 +39,28 @@ export const gallery: BilingualGallery = {
       ],
     },
     {
+      title: { bg: "OUT OF THE MATRIX", en: "OUT OF THE MATRIX" },
+      lines: {
+        bg: ["електрохимично полирана благородна стомана", "ръчно отляти кристали"],
+        en: ["electropolished noble steel", "hand-cast crystals"],
+      },
+      photos: [
+        { src: "/assets/DSCF1337.jpg", width: 1333, height: 2000 },
+        { src: "/assets/DSCF1347.jpg", width: 1920, height: 1280 },
+      ],
+    },
+    {
+      title: { bg: "LOOK AT YOURSELF", en: "LOOK AT YOURSELF" },
+      lines: {
+        bg: ["електрохимично полирана благородна стомана", "ръчно отляти кристали"],
+        en: ["electropolished noble steel", "hand-cast crystals"],
+      },
+      photos: [
+        { src: "/assets/DSCF1323.jpg", width: 1333, height: 2000 },
+        { src: "/assets/DSCF1330.jpg", width: 1920, height: 1307 },
+      ],
+    },
+    {
       title: { bg: "DEEP SEA TREASURE", en: "DEEP SEA TREASURE" },
       lines: {
         bg: ["сребро 925", "ръчно отляти кристали"],
@@ -51,8 +75,11 @@ export const gallery: BilingualGallery = {
     {
       title: { bg: "ME BEAUTIFUL", en: "ME BEAUTIFUL" },
       lines: {
-        bg: ["сребро 925", "ръчно отляти кристали"],
-        en: ["sterling silver 925", "hand-cast crystals"],
+        bg: [
+          "електрохимично полирана благородна стомана с титаниева позлата",
+          "ръчно отляти кристали",
+        ],
+        en: ["electropolished noble steel with a titanium gold plating", "hand-cast crystals"],
       },
       photos: [
         { src: "/assets/DSCF1251.jpg", width: 1333, height: 2000 },
@@ -62,8 +89,11 @@ export const gallery: BilingualGallery = {
     {
       title: { bg: "OUT OF THE CAGE", en: "OUT OF THE CAGE" },
       lines: {
-        bg: ["сребро 925", "ръчно отляти кристали"],
-        en: ["sterling silver 925", "hand-cast crystals"],
+        bg: [
+          "електрохимично полирана благородна стомана с титаниева позлата",
+          "ръчно отляти кристали",
+        ],
+        en: ["electropolished noble steel with a titanium gold plating", "hand-cast crystals"],
       },
       photos: [
         { src: "/assets/DSCF1263.jpg", width: 1333, height: 2000 },
@@ -73,8 +103,11 @@ export const gallery: BilingualGallery = {
     {
       title: { bg: "LOOKING FORWARD", en: "LOOKING FORWARD" },
       lines: {
-        bg: ["ковано сребро 925", "ръчно отляти кристали"],
-        en: ["forged sterling silver 925", "hand-cast crystals"],
+        bg: [
+          "електрохимично полирана благородна стомана с титаниева позлата",
+          "ръчно отляти кристали",
+        ],
+        en: ["electropolished noble steel with a titanium gold plating", "hand-cast crystals"],
       },
       photos: [
         { src: "/assets/DSCF1276.jpg", width: 1333, height: 2000 },
@@ -84,8 +117,11 @@ export const gallery: BilingualGallery = {
     {
       title: { bg: "JUST PRETTY", en: "JUST PRETTY" },
       lines: {
-        bg: ["сребро 925", "ръчно отляти кристали"],
-        en: ["sterling silver 925", "hand-cast crystals"],
+        bg: [
+          "електрохимично полирана благородна стомана с титаниева позлата",
+          "ръчно отляти кристали",
+        ],
+        en: ["electropolished noble steel with a titanium gold plating", "hand-cast crystals"],
       },
       photos: [
         { src: "/assets/DSCF1291.jpg", width: 1333, height: 2000 },
@@ -95,34 +131,15 @@ export const gallery: BilingualGallery = {
     {
       title: { bg: "THINGS OF LIFE", en: "THINGS OF LIFE" },
       lines: {
-        bg: ["сребро 925", "ръчно отляти кристали"],
-        en: ["sterling silver 925", "hand-cast crystals"],
+        bg: [
+          "електрохимично полирана благородна стомана с титаниева позлата",
+          "ръчно отляти кристали",
+        ],
+        en: ["electropolished noble steel with a titanium gold plating", "hand-cast crystals"],
       },
       photos: [
         { src: "/assets/DSCF1304.jpg", width: 1333, height: 2000 },
         { src: "/assets/DSCF1318.jpg", width: 1920, height: 1280 },
-      ],
-    },
-    {
-      title: { bg: "LOOK AT YOURSELF", en: "LOOK AT YOURSELF" },
-      lines: {
-        bg: ["сребро 925", "ръчно отляти кристали"],
-        en: ["sterling silver 925", "hand-cast crystals"],
-      },
-      photos: [
-        { src: "/assets/DSCF1323.jpg", width: 1333, height: 2000 },
-        { src: "/assets/DSCF1330.jpg", width: 1920, height: 1307 },
-      ],
-    },
-    {
-      title: { bg: "OUT OF THE MATRIX", en: "OUT OF THE MATRIX" },
-      lines: {
-        bg: ["сребро 925", "ръчно отляти кристали"],
-        en: ["sterling silver 925", "hand-cast crystals"],
-      },
-      photos: [
-        { src: "/assets/DSCF1337.jpg", width: 1333, height: 2000 },
-        { src: "/assets/DSCF1347.jpg", width: 1920, height: 1280 },
       ],
     },
     {
@@ -146,6 +163,14 @@ export const gallery: BilingualGallery = {
         { src: "/assets/DSCF1185.jpg", width: 1333, height: 2000 },
         { src: "/assets/DSCF1196.jpg", width: 1920, height: 1280 },
       ],
+    },
+    {
+      title: { bg: "СТАРА ТАЙНА", en: "AN OLD SECRET" },
+      lines: {
+        bg: ["колие и обици, ковано сребро 925, оксидирано, фрити"],
+        en: ["Necklace and earrings set, hand-forged oxidized sterling silver, frits"],
+      },
+      photos: [{ src: "/assets/an-old-secret.jpg", width: 1523, height: 1800 }],
     },
   ],
 };

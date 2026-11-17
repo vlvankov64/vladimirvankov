@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Poppins } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { sans } from "@/lib/fonts";
 import { SITE_URL } from "@/lib/site";
 import { ui } from "@/lib/ui";
 import "../globals.css";
@@ -15,23 +15,8 @@ import "../globals.css";
  * name appears in a URL. The cost is a full document load when switching language, which
  * is the correct behaviour when the document's language changes.
  *
- * The typefaces are declared in both layouts. `next/font` deduplicates them at build
- * time, so this is one download shared by both trees, not two.
+ * The typeface is declared once in `src/lib/fonts.ts` and shared by both trees.
  */
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  display: "swap",
-});
-
 const strings = ui.bg;
 
 export const metadata: Metadata = {
@@ -45,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function BgRootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="bg" className={`${cormorant.variable} ${poppins.variable} h-full`}>
+    <html lang="bg" className={`${sans.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <Header locale="bg" />
         <main className="flex-1">{children}</main>

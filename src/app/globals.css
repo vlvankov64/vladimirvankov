@@ -19,9 +19,10 @@
   --color-mist: #e0e0db; /* lightAccent — quiet section backgrounds */
   --color-paper: #ffffff; /* white — the dominant ground */
 
-  /* Both wired up in layout.tsx via next/font. */
-  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
-  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  /* One sans family, wired up in src/lib/fonts.ts via next/font. `display` stays a
+     separate role so headings can be retuned without touching body copy. */
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 
   /* Gallery pacing: the original leans on generous, even whitespace. */
   --ease-gentle: cubic-bezier(0.22, 1, 0.36, 1);
@@ -32,12 +33,11 @@
     @apply bg-paper font-sans text-ink antialiased;
   }
 
-  /* Cyrillic display type at large sizes needs a little negative tracking to sit
-     evenly; the original sets this on every heading. */
+  /* Headings sit light: at display sizes a regular-weight sans reads heavy. */
   h1,
   h2,
   h3 {
-    @apply font-display tracking-tight;
+    @apply font-display font-light tracking-tight;
   }
 }
 

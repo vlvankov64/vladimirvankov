@@ -14,7 +14,8 @@ const icons = { Instagram: InstagramIcon, Facebook: FacebookIcon } as const;
 
 /**
  * Sticky site header, arranged as the original: the artist's signature centred at the
- * top, the flat six-item nav centred beneath it, social icons out at the left.
+ * top — framed as a button and captioned Начало / Home, since it is the home link — the
+ * flat nav centred beneath it, social icons out at the left.
  *
  * The language switcher sits at the right, opposite the social icons — the original is
  * monolingual and has nothing there, and it is the conventional place to look for it.
@@ -51,7 +52,11 @@ export function Header({ locale }: { locale: Locale }) {
           <LanguageSwitcher current={locale} label={strings.languageLabel} />
         </div>
 
-        <Link href={localizePath("/", locale)} className="block">
+        {/* The logo is the home button: framed so it reads as one, and captioned. */}
+        <Link
+          href={localizePath("/", locale)}
+          className="group flex flex-col items-center gap-1 rounded-lg border border-ink/15 bg-paper px-4 pt-2 pb-1.5 shadow-sm transition-colors duration-300 hover:border-accent/50 hover:bg-mist/40"
+        >
           <Image
             src={siteLogo.src}
             alt={siteLogo.alt}
@@ -59,17 +64,20 @@ export function Header({ locale }: { locale: Locale }) {
             height={siteLogo.height}
             sizes="140px"
             priority
-            className="h-9 w-auto lg:h-11"
+            className="h-8 w-auto lg:h-10"
           />
+          <span className="caption-label text-ink/60 transition-colors group-hover:text-accent">
+            {strings.home}
+          </span>
         </Link>
 
         <nav aria-label={strings.mainNavLabel} className="hidden lg:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-5 xl:gap-9">
             {items.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="font-display text-base text-ink/80 transition-colors duration-300 hover:text-accent"
+                  className="font-display text-[17px] whitespace-nowrap text-ink/80 transition-colors duration-300 hover:text-accent xl:text-lg"
                 >
                   {item.label}
                 </Link>

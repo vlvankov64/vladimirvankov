@@ -26,6 +26,8 @@ export const ui: Localized<{
   fullText: string;
   languageLabel: string;
   skipToContent: string;
+  /** Caption under the logo, which is the home link. */
+  home: string;
 }> = {
   bg: {
     siteName: "Владимир Ванков",
@@ -42,6 +44,7 @@ export const ui: Localized<{
     fullText: "Целият текст",
     languageLabel: "Език",
     skipToContent: "Към съдържанието",
+    home: "Начало",
   },
   en: {
     siteName: "Vladimir Vankov",
@@ -58,5 +61,6 @@ export const ui: Localized<{
     fullText: "Full text",
     languageLabel: "Language",
     skipToContent: "Skip to content",
+    home: "Home",
   },
 };

@@ -15,46 +15,51 @@ export const gallery: BilingualGallery = {
     {
       title: { bg: "ИЗГРЕВ", en: "SUNRISE" },
       lines: {
-        bg: ["Свеж, бодър, лек, оптимистичен, нетърпелив, искрящ"],
-        en: ["Fresh, brisk, light, optimistic, impatient, sparkling"],
-      },
-      dimensions: "40 х 40",
-      photos: [{ src: "/assets/_DSF6520.jpg", width: 1898, height: 1920 }],
-    },
-    {
-      title: { bg: "ЗАЛЕЗ", en: "SUNSET" },
-      lines: {
-        bg: ["Ярък, зрял, спокоен, уверен, небързащ, наситен ... и малко тъжен"],
-        en: ["Bright, mature, calm, confident, unhurried, saturated … and a little sad"],
+        bg: ["Свеж, бодър, лек, оптимистичен, нетърпелив, искрящ", "смесена техника"],
+        en: ["Fresh, brisk, light, optimistic, impatient, sparkling", "mixed media"],
       },
       dimensions: "40 х 40",
       photos: [{ src: "/assets/_DSF6524.jpg", width: 1920, height: 1917 }],
     },
     {
+      title: { bg: "ЗАЛЕЗ", en: "SUNSET" },
+      lines: {
+        bg: ["Ярък, зрял, спокоен, уверен, небързащ, наситен ... и малко тъжен", "смесена техника"],
+        en: [
+          "Bright, mature, calm, confident, unhurried, saturated … and a little sad",
+          "mixed media",
+        ],
+      },
+      dimensions: "40 х 40",
+      photos: [{ src: "/assets/_DSF6520.jpg", width: 1898, height: 1920 }],
+    },
+    {
       title: { bg: "КЪМ …", en: "TOWARDS …" },
       lines: {
-        bg: ["Накъдето и да вървиш все се приближаваш към..."],
-        en: ["Wherever you walk, you are always drawing closer to…"],
+        bg: ["Накъдето и да вървиш все се приближаваш към...", "смесена техника"],
+        en: ["Wherever you walk, you are always drawing closer to…", "mixed media"],
       },
       dimensions: "64 х 33",
       photos: [{ src: "/assets/_DSF6508.jpg", width: 1920, height: 1379 }],
     },
     {
       title: { bg: "ЗЛАТНИ НЕБЕСА", en: "GOLDEN SKIES" },
+      lines: { bg: ["смесена техника"], en: ["mixed media"] },
       dimensions: "24 Х 18",
       photos: [{ src: "/assets/_DSF6504.jpg", width: 1920, height: 1433 }],
     },
     {
       title: { bg: "НОЩЕН ЕКСТАЗ", en: "NIGHT ECSTASY" },
       lines: {
-        bg: ["Като среднощен блус на Гери Муур"],
-        en: ["Like a midnight blues by Gary Moore"],
+        bg: ["Като среднощен блус на Гери Муур", "смесена техника"],
+        en: ["Like a midnight blues by Gary Moore", "mixed media"],
       },
       dimensions: "30 х 25",
       photos: [{ src: "/assets/_DSF6490.jpg", width: 1920, height: 1587 }],
     },
     {
       title: { bg: "НЯКЪДЕ ТАМ, ДЪЛБОКО, ДЪЛБОКО...", en: "SOMEWHERE THERE, DEEP, DEEP…" },
+      lines: { bg: ["смесена техника"], en: ["mixed media"] },
       dimensions: "30 Х 25",
       photos: [{ src: "/assets/_DSF6484.jpg", width: 1920, height: 1564 }],
     },
@@ -66,20 +71,19 @@ export const gallery: BilingualGallery = {
     {
       title: { bg: "ТРЪПНА НЕЖНОСТ", en: "TREMBLING TENDERNESS" },
       dimensions: "30 Х 24",
-      photos: [
-        { src: "/assets/_DSF6493.jpg", width: 1525, height: 1920 },
-        { src: "/assets/Radost-v-dushata-40x30.jpg", width: 1147, height: 855 },
-      ],
+      photos: [{ src: "/assets/_DSF6493.jpg", width: 1525, height: 1920 }],
     },
     {
+      // Once shown as a second photograph of Trembling Tenderness.
       title: { bg: "РАДОСТ В ДУШАТА", en: "JOY IN THE SOUL" },
       dimensions: "40 х 30",
-      photos: [{ src: "/assets/_DSF6505.jpg", width: 1920, height: 1918 }],
+      photos: [{ src: "/assets/Radost-v-dushata-40x30.jpg", width: 1147, height: 855 }],
     },
     {
+      // The white human figure.
       title: { bg: "ИЗБОРЪТ", en: "THE CHOICE" },
       dimensions: "20 х 20",
-      photos: [{ src: "/assets/_DSF6513.jpg", width: 1920, height: 1920 }],
+      photos: [{ src: "/assets/_DSF6505.jpg", width: 1920, height: 1918 }],
     },
     {
       title: { bg: "АЗ, БРЪМБАРЪТ", en: "I, THE BEETLE" },
@@ -88,8 +92,7 @@ export const gallery: BilingualGallery = {
         en: ["Yes, life is a complicated thing. Which way am I going?"],
       },
       dimensions: "30 х 30",
-      // The original prints this caption with no photograph on the page.
-      photos: [],
+      photos: [{ src: "/assets/_DSF6513.jpg", width: 1920, height: 1920 }],
     },
     {
       title: { bg: "... И МИ Е ЛЕКО, ЛЕКО ...", en: "… AND I FEEL LIGHT, SO LIGHT …" },
@@ -98,7 +101,10 @@ export const gallery: BilingualGallery = {
     },
     {
       title: { bg: "САМОТНОТО ЛИСТО", en: "THE LONELY LEAF" },
-      lines: { bg: ["Първо или последно?"], en: ["First or last?"] },
+      lines: {
+        bg: ["Първо или последно?", "смесена техника"],
+        en: ["First or last?", "mixed media"],
+      },
       dimensions: "63 х 52",
       photos: [{ src: "/assets/_DSF6533.jpg", width: 1920, height: 1595 }],
     },

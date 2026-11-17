@@ -6,6 +6,8 @@
 
 /
 /bio
+/recenzii
+/filmi
 /novini
 /novini/blog-post-title-two-tcmjn-3d33l
 /novini/qqqqqq

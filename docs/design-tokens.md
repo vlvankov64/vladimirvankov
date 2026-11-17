@@ -45,22 +45,18 @@ hand-mixed greys.
 
 ## Typography
 
-Two faces, both loaded from Typekit by the original and both available on Google Fonts, so
-`next/font` self-hosts them instead — no third-party connection on first paint.
+**One face: Montserrat (sans), weights 300–600**, self-hosted via `next/font` from
+`src/lib/fonts.ts`. The owner's revision of 2026-11-17 asked for a beautiful, easily readable
+sans-serif everywhere, replacing the original's Cormorant Garamond + Poppins pair.
 
-| Role                         | Face                       | Weights |
-| ---------------------------- | -------------------------- | ------- |
-| Headings, titles, standfirst | Cormorant Garamond (serif) | 300–600 |
-| Body, captions, nav          | Poppins (sans)             | 300–500 |
+**Cyrillic is the site's primary script**, so `subsets: ["latin", "cyrillic"]` is not optional —
+Poppins lacked a Cyrillic subset, which is one reason it went. On `lang="bg"` pages Montserrat
+uses its Bulgarian `locl` letterforms (the cursive-style д, т, л); disable with
+`font-feature-settings: "locl" 0` if the Russian-style forms are preferred.
 
-**Cyrillic is the site's primary script**, so `subsets: ["latin", "cyrillic"]` is not optional on the
-display face — without it every heading falls back to a system serif, which is the single most
-visible way to get this port wrong. Poppins has no Cyrillic subset on Google Fonts; it is used only
-for Latin-set captions, navigation and small labels, and Cyrillic body copy inherits the fallback
-stack, which is what the original does too.
-
-`--font-sans` and `--font-display` point at the two `next/font` variables, and `h1`–`h3` are set to
-the display face in a base layer so headings do not have to opt in.
+`--font-sans` and `--font-display` both point at the Montserrat variable; `display` stays a separate
+role so headings can be retuned alone. `h1`–`h3` are set to `font-light` in a base layer — at
+display sizes a regular-weight sans reads heavy.
 
 ## Type scale in practice
 
