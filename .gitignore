@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# planning notes
+/planned_changes/
+
+# scraped reference material
+/reference/raw/
+/reference/compare/
